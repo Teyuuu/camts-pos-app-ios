@@ -53,7 +53,7 @@ jobs:
         cd ios/App
         pod install --repo-update
 
-    # 8. Build for Simulator (No signing required)
+    # 8. Build for Simulator (No signing required) using available simulator
     - name: Build for Simulator (No Signing Required)
       run: |
         cd ios/App
@@ -61,7 +61,7 @@ jobs:
           -workspace App.xcworkspace \
           -scheme App \
           -configuration Release \
-          -destination 'platform=iOS Simulator,name=iPhone 14' \
+          -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.6' \
           -derivedDataPath build \
           CODE_SIGNING_ALLOWED=NO
 
