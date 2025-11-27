@@ -9,37 +9,53 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    # 1. Checkout the repo
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+    # 2. Setup Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
 
-      - name: Install Dependencies
-        run: npm install
+    # 3. Install npm dependencies
+    - name: Install Dependencies
+      run: npm install
 
-      - name: Sync Capacitor
-        run: npx cap sync ios
+    # 4. Ensure Capacitor CLI has execute permissions and sync iOS
+    - name: Sync Capacitor
+      run: |
+        chmod +x ./node_modules/.bin/cap
+        npx cap sync ios
 
-      - name: Update CocoaPods
-        run: |
-          cd ios/App
-          pod install
+    # 5. Update CocoaPods dependencies
+    - name: Update CocoaPods
+      run: |
+        cd ios/App
+        pod install --repo-update
 
-      - name: Build for Simulator (No Signing Required)
-        run: |
-          cd ios/App
-          xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -destination 'platform=iOS Simulator,name=iPhone 14' -derivedDataPath build CODE_SIGNING_ALLOWED=NO
+    # 6. Build for Simulator (No signing required)
+    - name: Build for Simulator (No Signing Required)
+      run: |
+        cd ios/App
+        xcodebuild \
+          -workspace App.xcworkspace \
+          -scheme App \
+          -configuration Release \
+          -destination 'platform=iOS Simulator,name=iPhone 14' \
+          -derivedDataPath build \
+          CODE_SIGNING_ALLOWED=NO
 
-      - name: Zip the Build
-        run: |
-          cd ios/App/build/Build/Products/Release-iphonesimulator
-          zip -r App.zip App.app
+    # 7. Zip the built app
+    - name: Zip the Build
+      run: |
+        cd ios/App/build/Build/Products/Release-iphonesimulator
+        zip -r App.zip App.app
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ios-app-simulator
-          path: ios/App/build/Build/Products/Release-iphonesimulator/App.zip
+    # 8. Upload the zipped artifact
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ios-app-simulator
+        path: ios/App/build/Build/Products/Release-iphonesimulator/App.zip
