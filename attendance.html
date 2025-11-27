@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management - CAMTS POS</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/attendance.css">
+</head>
+<body>
+    <button id="sidebar-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" class="sidebar-logo" alt="CAMTS Logo">
+            <div class="sidebar-brand">CAMTS</div>
+            <div class="sidebar-tagline">Consumer Goods Trading</div>
+        </div>
+        <ul>
+            <li><a href="index.html"><span>📊</span><span>Dashboard</span></a></li>
+            <li><a href="sales.html"><span>💰</span><span>Sales</span></a></li>
+            <li><a href="accounts.html"><span>🔒</span><span>Accounts</span></a></li>
+            <li><a href="delivery.html"><span>🚚</span><span>Delivery</span></a></li>
+            <li><a href="inventory.html"><span>📦</span><span>Inventory</span></a></li>
+            <li><a href="attendance.html"><span>🕐</span><span>Attendance</span></a></li>
+            <li><a href="alerts.html"><span>🚨</span><span>Alerts</span></a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <h1>🕐 Attendance Management System</h1>
+        
+        <div class="clock-card">
+            <div id="attendanceDay" class="day-display"></div>
+            <div id="attendanceDate" class="date-display"></div>
+            <div id="attendanceTime" class="clock-display"></div>
+            <div style="font-size: 14px; color: #7f8c8d;">Current Time (Philippine Standard Time)</div>
+        </div>
+
+        <div class="form-container">
+            <h3 style="text-align: center; margin-bottom: 20px;">Quick Actions</h3>
+            <div class="form-group">
+                <label>Select Employee:</label>
+                <select id="employeeSelect">
+                    <option value="">Choose Employee</option>
+                    <option value="1">Christian Mendoza - CEO</option>
+                    <option value="2">Jefferson Pondare - Manager</option>
+                    <option value="3">John Clark Olao - Helper</option>
+                    <option value="4">Christian Denosta - Helper</option>
+                    <option value="4">Miguel Masinadiong - Helper</option>
+                </select>
+            </div>
+            <div id="currentStatus" class="status-display">
+                <strong>Status:</strong> <span id="statusText">Please select an employee</span>
+            </div>
+            <div class="action-buttons">
+                <button id="timeInBtn" class="btn-time-in" onclick="timeIn()" disabled>🟢 Time In</button>
+                <button id="timeOutBtn" class="btn-time-out" onclick="timeOut()" disabled>🔴 Time Out</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <div class="table-header">Attendance History</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Employee</th>
+                            <th>Time In</th>
+                            <th>Time Out</th>
+                            <th>Hours</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendanceTableBody">
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 30px;">No attendance records found.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/attendance.js"></script>
+</body>
+</html>

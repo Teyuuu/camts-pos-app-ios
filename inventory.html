@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management - CAMTS POS</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/inventory.css">
+</head>
+<body>
+    <button id="sidebar-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" class="sidebar-logo" alt="CAMTS Logo">
+            <div class="sidebar-brand">CAMTS</div>
+            <div class="sidebar-tagline">Consumer Goods Trading</div>
+        </div>
+        <ul>
+            <li><a href="index.html"><span>📊</span><span>Dashboard</span></a></li>
+            <li><a href="sales.html"><span>💰</span><span>Sales</span></a></li>
+            <li><a href="accounts.html"><span>🔒</span><span>Accounts</span></a></li>
+            <li><a href="delivery.html"><span>🚚</span><span>Delivery</span></a></li>
+            <li><a href="inventory.html"><span>📦</span><span>Inventory</span></a></li>
+            <li><a href="attendance.html"><span>🕐</span><span>Attendance</span></a></li>
+            <li><a href="alerts.html"><span>🚨</span><span>Alerts</span></a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <h1>📦 Inventory Management</h1>
+        
+        <div id="inventoryAlerts"></div>
+
+        <div class="inventory-summary">
+            <h2>Inventory Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <h3>Total Products</h3>
+                    <div class="summary-value" style="color:#3498db;" id="totalProducts">0</div>
+                </div>
+                <div class="summary-item">
+                    <h3>Total Stock</h3>
+                    <div class="summary-value" style="color:#27ae60;" id="totalStock">0</div>
+                </div>
+                <div class="summary-item">
+                    <h3>Low Stock Items</h3>
+                    <div class="summary-value" style="color:#f39c12;" id="lowStock">0</div>
+                </div>
+                <div class="summary-item">
+                    <h3>Out of Stock</h3>
+                    <div class="summary-value" style="color:#e74c3c;" id="outOfStock">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="inventory-grid" id="inventoryGrid"></div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/inventory.js"></script>
+</body>
+</html>

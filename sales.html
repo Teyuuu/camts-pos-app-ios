@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Management - CAMTS POS</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/sales.css">
+</head>
+<body>
+    <button id="sidebar-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" class="sidebar-logo" alt="CAMTS Logo">
+            <div class="sidebar-brand">CAMTS</div>
+            <div class="sidebar-tagline">Consumer Goods Trading</div>
+        </div>
+        <ul>
+            <li><a href="index.html"><span>📊</span><span>Dashboard</span></a></li>
+            <li><a href="sales.html"><span>💰</span><span>Sales</span></a></li>
+            <li><a href="accounts.html"><span>🔒</span><span>Accounts</span></a></li>
+            <li><a href="delivery.html"><span>🚚</span><span>Delivery</span></a></li>
+            <li><a href="inventory.html"><span>📦</span><span>Inventory</span></a></li>
+            <li><a href="attendance.html"><span>🕐</span><span>Attendance</span></a></li>
+            <li><a href="alerts.html"><span>🚨</span><span>Alerts</span></a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <h1>💰 Sales Management</h1>
+        
+        <div class="form-container">
+            <h2>Add New Sale</h2>
+            <form id="salesForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Company Name *</label>
+                        <input type="text" name="company" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Product Type *</label>
+                        <select name="product" required>
+                            <option value="">Select Product</option>
+                            <option value="Premium Charcoal">Premium Charcoal</option>
+                            <option value="Standard Charcoal">Standard Charcoal</option>
+                            <option value="BBQ Charcoal">BBQ Charcoal</option>
+                            <option value="Restaurant Grade">Restaurant Grade</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Method</label>
+                        <select name="payment_method">
+                            <option value="Cash">Cash</option>
+                            <option value="Bank Transfer">Bank Transfer</option>
+                            <option value="Check">Check</option>
+                            <option value="Credit">Credit</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Quantity (kg) *</label>
+                        <input type="number" name="quantity" min="1" step="0.01" required id="quantity">
+                    </div>
+                    <div class="form-group">
+                        <label>Price per kg (₱) *</label>
+                        <input type="number" name="price_per_kg" min="0.01" step="0.01" required id="price_per_kg">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Amount (₱) *</label>
+                        <input type="number" name="amount" readonly required id="amount">
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Add Sale</button>
+            </form>
+        </div>
+
+        <div class="total-section">
+            <h3>Total Sales Today</h3>
+            <div class="total-amount" id="totalToday">₱0.00</div>
+        </div>
+
+        <div class="table-container">
+            <div class="table-header">Sales History</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price/kg</th>
+                            <th>Amount</th>
+                            <th>Payment</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="salesTableBody">
+                        <tr>
+                            <td colspan="7" style="text-align: center; padding: 30px;">No sales recorded yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/sales.js"></script>
+</body>
+</html>

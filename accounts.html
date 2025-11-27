@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts Payable - CAMTS POS</title>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+    <button id="sidebar-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" class="sidebar-logo" alt="CAMTS Logo">
+            <div class="sidebar-brand">CAMTS</div>
+            <div class="sidebar-tagline">Consumer Goods Trading</div>
+        </div>
+        <ul>
+            <li><a href="index.html"><span>📊</span><span>Dashboard</span></a></li>
+            <li><a href="sales.html"><span>💰</span><span>Sales</span></a></li>
+            <li><a href="accounts.html"><span>🔒</span><span>Accounts</span></a></li>
+            <li><a href="delivery.html"><span>🚚</span><span>Delivery</span></a></li>
+            <li><a href="inventory.html"><span>📦</span><span>Inventory</span></a></li>
+            <li><a href="attendance.html"><span>🕐</span><span>Attendance</span></a></li>
+            <li><a href="alerts.html"><span>🚨</span><span>Alerts</span></a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <h1>🔒 Accounts Payable Management</h1>
+        
+        <div class="form-container">
+            <h2>Add New Account Payable</h2>
+            <form id="accountsForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Company/Vendor Name *</label>
+                        <input type="text" name="company" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Person</label>
+                        <input type="text" name="contact_person">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone">
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Invoice Number</label>
+                        <input type="text" name="invoice_number">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select name="category">
+                            <option value="Supplies">Supplies</option>
+                            <option value="Equipment">Equipment</option>
+                            <option value="Services">Services</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <select name="priority">
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Amount Payable (₱) *</label>
+                        <input type="number" name="payable" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Invoice Date</label>
+                        <input type="date" name="invoice_date">
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date *</label>
+                        <input type="date" name="due_date" required>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label>Description/Notes</label>
+                        <textarea name="description" rows="3"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Add Account Payable</button>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <div class="table-header">Accounts Payable</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Invoice #</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody id="accountsTableBody">
+                        <tr>
+                            <td colspan="7" style="text-align: center; padding: 30px;">No accounts payable recorded yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/accounts.js"></script>
+</body>
+</html>

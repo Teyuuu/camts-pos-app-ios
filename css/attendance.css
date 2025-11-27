@@ -1,0 +1,125 @@
+/* attendance.css - Attendance page specific styles */
+
+.clock-card {
+    background: rgba(255,255,255,0.95);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.day-display {
+    font-size: 20px;
+    color: #34495e;
+    font-weight: 600;
+}
+
+.date-display {
+    font-size: 22px;
+    color: #2c3e50;
+    margin: 5px 0;
+}
+
+.clock-display {
+    font-size: 52px;
+    font-weight: bold;
+    color: #e74c3c;
+    font-family: 'Courier New', monospace;
+    margin: 10px 0 15px;
+}
+
+.status-display {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 20px 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.btn-time-in,
+.btn-time-out {
+    flex: 1;
+    max-width: 200px;
+    padding: 18px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-time-in {
+    background: #27ae60;
+}
+
+.btn-time-in:hover:not(:disabled) {
+    background: #219150;
+}
+
+.btn-time-out {
+    background: #e74c3c;
+}
+
+.btn-time-out:hover:not(:disabled) {
+    background: #c0392b;
+}
+
+.btn-time-in:disabled,
+.btn-time-out:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.hours {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.status-late { color: #e74c3c; font-weight: bold; }
+.status-complete { color: #27ae60; }
+.status-progress { color: #f39c12; }
+.status-absent { color: #e74c3c; }
+
+@media (max-width: 768px) {
+    .clock-display {
+        font-size: 42px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn-time-in,
+    .btn-time-out {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .clock-display {
+        font-size: 36px;
+    }
+
+    .day-display {
+        font-size: 18px;
+    }
+
+    .date-display {
+        font-size: 20px;
+    }
+}

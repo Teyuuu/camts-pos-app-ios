@@ -1,0 +1,147 @@
+/* inventory.css - Inventory page specific styles */
+
+.inventory-summary {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.summary-item h3 {
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.summary-value {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.stock-level {
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.stock-high { background: #eafaf1; color: #27ae60; }
+.stock-medium { background: #fff8e1; color: #f39c12; }
+.stock-low { background: #fdecea; color: #e74c3c; }
+.stock-out { background: #f8d7da; color: #721c24; }
+
+.product-details {
+    margin: 15px 0;
+}
+
+.product-details p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.inventory-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.inventory-actions input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.inventory-actions button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    color: white;
+}
+
+.btn-restock {
+    background: #27ae60;
+}
+
+.btn-restock:hover {
+    background: #219a52;
+}
+
+.btn-consume {
+    background: #e74c3c;
+}
+
+.btn-consume:hover {
+    background: #c0392b;
+}
+
+@media (max-width: 768px) {
+    .inventory-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .inventory-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .summary-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .product-card {
+        padding: 20px;
+    }
+}

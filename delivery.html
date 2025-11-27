@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Management - CAMTS POS</title>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+    <button id="sidebar-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" class="sidebar-logo" alt="CAMTS Logo">
+            <div class="sidebar-brand">CAMTS</div>
+            <div class="sidebar-tagline">Consumer Goods Trading</div>
+        </div>
+        <ul>
+            <li><a href="index.html"><span>📊</span><span>Dashboard</span></a></li>
+            <li><a href="sales.html"><span>💰</span><span>Sales</span></a></li>
+            <li><a href="accounts.html"><span>🔒</span><span>Accounts</span></a></li>
+            <li><a href="delivery.html"><span>🚚</span><span>Delivery</span></a></li>
+            <li><a href="inventory.html"><span>📦</span><span>Inventory</span></a></li>
+            <li><a href="attendance.html"><span>🕐</span><span>Attendance</span></a></li>
+            <li><a href="alerts.html"><span>🚨</span><span>Alerts</span></a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <h1>🚚 Delivery Management</h1>
+        
+        <div class="form-container">
+            <h2>Schedule New Delivery</h2>
+            <form id="deliveryForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Company Name *</label>
+                        <input type="text" name="company" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Person</label>
+                        <input type="text" name="contact_person">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" name="phone">
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Product *</label>
+                        <select name="product" required>
+                            <option value="">Select Product</option>
+                            <option value="Ordinary Charcoal">Ordinary Charcoal</option>
+                            <option value="Special Charcoal">Special Charcoal</option>
+                            <option value="Premium Charcoal">Premium Charcoal</option>
+                            <option value="BBQ Charcoal">BBQ Charcoal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity (sacks) *</label>
+                        <input type="number" name="qty" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <select name="priority">
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Delivery Date *</label>
+                        <input type="date" name="delivery_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Delivery Time</label>
+                        <input type="time" name="delivery_time">
+                    </div>
+                    <div class="form-group">
+                        <label>Driver</label>
+                        <input type="text" name="driver">
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label>Delivery Address</label>
+                        <textarea name="address" rows="2"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Schedule Delivery</button>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <div class="table-header">Delivery Schedule</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Delivery Date</th>
+                            <th>Status</th>
+                            <th>Driver</th>
+                        </tr>
+                    </thead>
+                    <tbody id="deliveryTableBody">
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 30px;">No deliveries scheduled yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/delivery.js"></script>
+</body>
+</html>

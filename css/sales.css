@@ -1,0 +1,43 @@
+/* sales.css - Sales page specific styles */
+
+.total-section {
+    background: rgba(255,255,255,0.95);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.total-section h3 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.total-amount {
+    font-size: 36px;
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+/* Sales specific responsive */
+@media (max-width: 768px) {
+    .total-section {
+        padding: 15px;
+    }
+
+    .total-amount {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .total-amount {
+        font-size: 24px;
+    }
+}
