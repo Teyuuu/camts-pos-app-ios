@@ -1,0 +1,26 @@
+{
+  "name": "camts-pos-app-ios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Teyuuu/camts-pos-app-ios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Teyuuu/camts-pos-app-ios/issues"
+  },
+  "homepage": "https://github.com/Teyuuu/camts-pos-app-ios#readme",
+  "dependencies": {
+    "@capacitor/cli": "^7.4.4",
+    "@capacitor/core": "^7.4.4",
+    "@capacitor/ios": "^7.4.4"
+  }
+}
