@@ -13,29 +13,47 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # 2. Setup Node.js
+    # 2. Setup Node.js (Capacitor >=5 requires Node >=20)
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 20
 
-    # 3. Install npm dependencies
+    # 3. Cache npm dependencies
+    - name: Cache npm
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: npm-cache-${{ hashFiles('package-lock.json') }}
+        restore-keys: |
+          npm-cache-
+
+    # 4. Install npm dependencies
     - name: Install Dependencies
       run: npm install
 
-    # 4. Ensure Capacitor CLI has execute permissions and sync iOS
+    # 5. Ensure Capacitor CLI is executable and sync iOS
     - name: Sync Capacitor
       run: |
         chmod +x ./node_modules/.bin/cap
         npx cap sync ios
 
-    # 5. Update CocoaPods dependencies
+    # 6. Cache CocoaPods
+    - name: Cache CocoaPods
+      uses: actions/cache@v3
+      with:
+        path: ios/App/Pods
+        key: pod-cache-${{ hashFiles('ios/App/Podfile.lock') }}
+        restore-keys: |
+          pod-cache-
+
+    # 7. Update CocoaPods dependencies
     - name: Update CocoaPods
       run: |
         cd ios/App
         pod install --repo-update
 
-    # 6. Build for Simulator (No signing required)
+    # 8. Build for Simulator (No signing required)
     - name: Build for Simulator (No Signing Required)
       run: |
         cd ios/App
@@ -47,13 +65,13 @@ jobs:
           -derivedDataPath build \
           CODE_SIGNING_ALLOWED=NO
 
-    # 7. Zip the built app
+    # 9. Zip the built app
     - name: Zip the Build
       run: |
         cd ios/App/build/Build/Products/Release-iphonesimulator
         zip -r App.zip App.app
 
-    # 8. Upload the zipped artifact
+    # 10. Upload the zipped artifact
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
